@@ -1,29 +1,28 @@
-import React from 'react';
-import Rating from './Rating';
+import React from 'react'
+import Rating from './Rating'
 
-function random(array) {
-  return array[Math.floor(Math.random() * array.length)];
+function random (array) {
+  return array[Math.floor(Math.random() * array.length)]
 }
 
-class Survey extends React.Component {
-
-  constructor(props) {
-    super(props);
+export default class Survey extends React.Component {
+  constructor (props) {
+    super(props)
 
     this.state = {
       rating: 0
-    };
+    }
   }
 
   increaseRating = () => {
-    this.setState({ rating: this.state.rating + 1 });
+    this.setState({ rating: this.state.rating + 1 })
   }
 
   decreaseRating = () => {
-    this.setState({ rating: this.state.rating - 1 });
+    this.setState({ rating: this.state.rating - 1 })
   }
 
-  maintainRating = () => this.forceUpdate();
+  maintainRating = () => this.forceUpdate()
 
   render() {
     return (
@@ -36,5 +35,3 @@ class Survey extends React.Component {
     )
   }
 }
-
-export default Survey;

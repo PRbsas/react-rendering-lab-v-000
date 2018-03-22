@@ -1,22 +1,28 @@
-import React from 'react';
+import React from 'react'
 
-class Rating extends React.Component {
-
-  constructor(props) {
-    super(props);
+export default class Rating extends React.Component {
+  constructor (props) {
+    super(props)
 
     this.state = {
       increasing: false,
       decreasing: false
-    };
+    }
   }
 
-  render() {
-    let trend = 'stable';
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      increasing: this.props.rating < nextProps.rating,
+      decreasing: this.props.rating > nextProps.rating
+    })
+  }
+
+  render () {
+    let trend = 'stable'
     if (this.state.increasing) {
-      trend = 'increasing';
+      trend = 'increasing'
     } else if (this.state.decreasing) {
-      trend = 'decreasing';
+      trend = 'decreasing'
     }
 
     return (
@@ -27,5 +33,3 @@ class Rating extends React.Component {
     )
   }
 }
-
-export default Rating;
